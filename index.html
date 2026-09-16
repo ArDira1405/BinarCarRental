@@ -43,7 +43,7 @@
                 <div class="textcover">
                     <h1>Sewa & Rental Mobil Terbaik di Kawasan (Lokasimu)</h1>
                     <p>Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.</p>
-                    <button class="btnmulai" type="button" onclick="window.location.href='#';">Mulai Sewa Mobil</button>
+                    <button class="btnmulai" type="button" onclick="window.location.href='carimobil.html';">Mulai Sewa Mobil</button>
                 </div>
             </div>
             <div class="coverpagekanan">
@@ -278,16 +278,22 @@
     const testimonialCards = document.querySelectorAll('.testimonial-card');
     const previousButton = document.querySelector('#prev');
     const nextButton = document.querySelector('#next');
-    let testimonialIndex = 0;
+    const testimonialViewport = document.querySelector('.testimonial-viewport');
+    let testimonialIndex = window.innerWidth > 768 ? 1 : 0;
+    let isDraggingTestimonials = false;
+    let dragStartX = 0;
+    let dragDistance = 0;
+    let wheelDistance = 0;
+    let lastWheelSlide = 0;
 
     function updateTestimonials() {
         const viewportWidth = document.querySelector('.testimonial-viewport').getBoundingClientRect().width;
         const cardWidth = testimonialCards[0].getBoundingClientRect().width;
         const cardGap = parseFloat(getComputedStyle(testimonialTrack).gap) || 0;
-        const visibleCards = Math.max(1, Math.floor((viewportWidth + cardGap) / (cardWidth + cardGap)));
-        const maxIndex = testimonialCards.length - visibleCards;
-        testimonialIndex = Math.min(testimonialIndex, maxIndex);
-        testimonialTrack.style.transform = `translateX(-${testimonialIndex * (cardWidth + cardGap)}px)`;
+        const maxIndex = testimonialCards.length - 1;
+        const centerOffset = Math.max(0, (viewportWidth - cardWidth) / 2);
+        testimonialIndex = Math.max(0, Math.min(testimonialIndex, maxIndex));
+        testimonialTrack.style.transform = `translateX(${centerOffset - testimonialIndex * (cardWidth + cardGap)}px)`;
         previousButton.disabled = testimonialIndex === 0;
         nextButton.disabled = testimonialIndex === maxIndex;
     }
@@ -303,14 +309,96 @@
         const viewportWidth = document.querySelector('.testimonial-viewport').getBoundingClientRect().width;
         const cardWidth = testimonialCards[0].getBoundingClientRect().width;
         const cardGap = parseFloat(getComputedStyle(testimonialTrack).gap) || 0;
-        const visibleCards = Math.max(1, Math.floor((viewportWidth + cardGap) / (cardWidth + cardGap)));
-        const maxIndex = testimonialCards.length - visibleCards;
+        const maxIndex = testimonialCards.length - 1;
 
         if (testimonialIndex < maxIndex) {
             testimonialIndex += 1;
             updateTestimonials();
         }
     });
+
+    testimonialViewport.addEventListener('pointerdown', function (event) {
+        if (event.button !== undefined && event.button !== 0) {
+            return;
+        }
+
+        event.preventDefault();
+        isDraggingTestimonials = true;
+        dragStartX = event.clientX;
+        dragDistance = 0;
+        testimonialViewport.classList.add('is-dragging');
+        testimonialViewport.setPointerCapture(event.pointerId);
+    });
+
+    testimonialViewport.addEventListener('pointermove', function (event) {
+        if (!isDraggingTestimonials) {
+            return;
+        }
+
+        event.preventDefault();
+        dragDistance = event.clientX - dragStartX;
+        const cardWidth = testimonialCards[0].getBoundingClientRect().width;
+        const cardGap = parseFloat(getComputedStyle(testimonialTrack).gap) || 0;
+        const centerOffset = Math.max(0, (testimonialViewport.getBoundingClientRect().width - cardWidth) / 2);
+        const currentOffset = testimonialIndex * (cardWidth + cardGap);
+        testimonialTrack.style.transform = `translateX(${centerOffset + dragDistance - currentOffset}px)`;
+    });
+
+    function finishTestimonialDrag(event) {
+        if (!isDraggingTestimonials) {
+            return;
+        }
+
+        isDraggingTestimonials = false;
+        testimonialViewport.classList.remove('is-dragging');
+
+        const threshold = 30;
+        const cardWidth = testimonialCards[0].getBoundingClientRect().width;
+        const cardGap = parseFloat(getComputedStyle(testimonialTrack).gap) || 0;
+        const maxIndex = testimonialCards.length - 1;
+
+        if (dragDistance < -threshold && testimonialIndex < maxIndex) {
+            testimonialIndex += 1;
+        } else if (dragDistance > threshold && testimonialIndex > 0) {
+            testimonialIndex -= 1;
+        }
+
+        testimonialTrack.style.transition = '';
+        updateTestimonials();
+
+        if (event && testimonialViewport.hasPointerCapture(event.pointerId)) {
+            testimonialViewport.releasePointerCapture(event.pointerId);
+        }
+    }
+
+    testimonialViewport.addEventListener('pointerup', finishTestimonialDrag);
+    testimonialViewport.addEventListener('pointercancel', finishTestimonialDrag);
+
+    testimonialViewport.addEventListener('wheel', function (event) {
+        const wheelMovement = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+        if (!wheelMovement) {
+            return;
+        }
+
+        event.preventDefault();
+        wheelDistance += wheelMovement;
+
+        const now = Date.now();
+        if (Math.abs(wheelDistance) < 35 || now - lastWheelSlide < 300) {
+            return;
+        }
+
+        if (wheelDistance > 0 && testimonialIndex < testimonialCards.length - 1) {
+            testimonialIndex += 1;
+        } else if (wheelDistance < 0 && testimonialIndex > 0) {
+            testimonialIndex -= 1;
+        }
+
+        wheelDistance = 0;
+        lastWheelSlide = now;
+        updateTestimonials();
+    }, { passive: false });
 
     window.addEventListener('resize', updateTestimonials);
     updateTestimonials();

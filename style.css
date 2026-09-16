@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    /* width: 100%; */
 }
 
 html {
@@ -31,8 +30,15 @@ html {
 .menu {
     display: flex;
     width: 100%;
-    height: 80px;
+    height: 104px;
     padding-top: 24px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    background-color: rgba(241, 243, 255, 0.96);
+    backdrop-filter: blur(8px);
 }
 
 .menukiri {
@@ -77,6 +83,8 @@ html {
     background-color: #f1f3ff;
     height: 600px;
     width: 100%;
+    padding-top: 104px;
+    box-sizing: border-box;
 }
 .coverpage {
     display: flex;
@@ -97,11 +105,13 @@ html {
 .textcover h1 {
     font-family: Arial, sans-serif;
     font-size: 36px;
+    width: 600px;
 }
 
 .textcover p {
     font-family: Arial, sans-serif;
     font-size: 16px;
+    width: 500px;
 }
 
 .btnmulai {
@@ -156,7 +166,6 @@ html {
 
 /* BAGIAN TEKS */
 .ul{
-    /* display: flex; */
     padding-bottom: 20px;    
 }
 .pageourservices > div:nth-child(2) {
@@ -184,7 +193,6 @@ html {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    /* justify-content: center; */
 }
 
 .list {
@@ -285,33 +293,55 @@ html {
 
 /* CAROUSEL TESTIMONIAL */
 .testimonial-viewport {
-    width: min(1140px, 100%);
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+    overscroll-behavior-x: contain;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .testimonial-track {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     transition: transform 0.35s ease;
+    will-change: transform;
 }
 
 .testimonial-card {
-    flex: 0 0 360px;
-    height: 160px;
+    flex: 0 0 min(620px, 72vw);
+    min-height: 270px;
+    height: auto;
     box-sizing: border-box;
     background-color: #f1f3ff;
     border-radius: 8px;
     display: flex;
     align-items: center;
     text-align: left;
-    padding: 15px;
+    padding: 32px 46px;
+    user-select: none;
+    cursor: grab;
+}
+
+.testimonial-card img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+}
+
+.testimonial-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+.testimonial-viewport.is-dragging .testimonial-track {
+    transition: none;
 }
 
 
 /* BAGIAN FOTO */
 .testimonial-card > div:first-child {
-    width: 70px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -320,8 +350,8 @@ html {
 
 /* FOTO */
 .testimonial-card > div:first-child img {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -329,7 +359,8 @@ html {
 
 /* BAGIAN ISI */
 .testimonial-card > div:last-child {
-    width: 250px;
+    flex: 1;
+    width: auto;
 }
 
 
@@ -342,20 +373,13 @@ html {
 /* BINTANG */
 .testimonial-card > div:last-child::before {
     content: "★★★★★";
-
-    /* display: flex; */
     color: #F9C623;
-    /* justify-content: center;
-    font-size: 22px;
-    letter-spacing: 1px;
-
-    margin-bottom: 25px; */
 }
 
 /* TEKS REVIEW */
 .testimonial-card > div:last-child p:first-of-type {
     font-family: Arial, sans-serif;
-    font-size: 10px;
+    font-size: 14px;
     line-height: 1.4;
     margin: 5px 0;
 }
@@ -364,7 +388,7 @@ html {
 /* NAMA */
 .testimonial-card > div:last-child p:last-of-type {
     font-family: Arial, sans-serif;
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 8px;
 }
 /* KONTROL CAROUSEL */
@@ -391,7 +415,6 @@ html {
     opacity: 0.35;
     cursor: not-allowed;
 }
-/* ================================================================================================ */
 /* Page 5 // pageSewa */
 .pagesewa {
     display: flex;
@@ -439,7 +462,6 @@ html {
     border: none;
     border-radius: 2px;
 }
-/* ============================================================================================== */
 /* page 6 //quest */
 .pagequest{
     display: flex;
@@ -517,7 +539,6 @@ html {
     max-height: 100px;
     padding: 0 20px 18px;
 }
-/* ============================================================================================== */
 /* page 7 // footer */
 .footer{
     display: flex;
@@ -555,8 +576,345 @@ html {
     height: 30px;
     background-color: #0D28A6;
 }
-/* ============================================================================================== */
-/* ============================================================================================== */
+.formcari{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    transition: filter 0.25s ease;
+}
+body.form-active > *:not(.formcari) {
+    filter: blur(4px) grayscale(0.85);
+    opacity: 0.42;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.formcarimobil{
+    box-sizing: border-box;
+    width: min(1100px, 100%);
+    height: auto;
+    margin-top: -65px;
+    position: relative;
+    z-index: 999;
+    border-radius: 8px;
+    padding: 20px 24px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background-color: #ffffff;
+}
+.formcarimobil > div:first-child {
+    width: 100%;
+    min-height: 19px;
+}
+
+.formcarimobil > div:first-child h1 {
+    margin: 0;
+    color: #333333;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.formcarimobil > div:nth-child(2) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) 150px;
+    align-items: end;
+    gap: 16px;
+}
+
+.formcarimobil > div:nth-child(2) .passenger-select input {
+    width: 100%;
+}
+
+.form-fields-centered {
+    grid-template-columns: repeat(4, minmax(0, 200px)) 150px !important;
+    justify-content: center;
+}
+
+.formcarimobil > div.form-fields-centered {
+    align-items: center;
+}
+.formcarimobil div label {
+    width: 100%;
+    display: block;
+    margin: 0 0 5px 0;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #333333;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+}
+.formcarimobil div input:not([type="hidden"]){
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #b1b1b1;
+    padding: 0 10px;
+    background-color: #ffffff;
+    color: #333333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.formcarimobil div input:not([type="hidden"]):hover,
+.formcarimobil div input:not([type="hidden"]):focus {
+    border-color: #5CB85F;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(92, 184, 95, 0.14);
+}
+.formcarimobil > div:not(.time-field) input:not([type="hidden"]) {
+    border: 1px solid #b8cdb9;
+    border-left: 4px solid #5CB85F;
+    border-radius: 8px;
+    background-color: #f8fbf8;
+}
+.formcarimobil button{
+    width: 150px;
+    height: 40px;
+    background-color: #5CB85F;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.field-hint {
+    color: #777777;
+    font-size: 11px;
+    font-weight: normal;
+    margin-left: 3px;
+}
+
+.time-field .field-hint {
+    color: #5CB85F;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-select {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border: 1px solid #b8cdb9;
+    border-left: 4px solid #5CB85F;
+    border-radius: 8px;
+    background-color: #f8fbf8;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 12px;
+    color: #666666;
+
+    cursor: pointer;
+}
+
+.dropdown-select:hover,
+.dropdown-select:focus-visible {
+    border-color: #5CB85F;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(92, 184, 95, 0.14);
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.25s ease;
+}
+
+.arrow img {
+    display: block;
+    width: 20px;
+    object-fit: contain;
+    filter: grayscale(1);
+}
+
+.dropdown-select .arrow i {
+    color: #7e807e;
+}
+
+.dropdown-select#dropdownSelect[aria-expanded="true"] .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-select#timeSelect .arrow {
+    transform: none;
+}
+
+.time-field .arrow i {
+    color: #7e807e;
+    font-size: 18px;
+}
+
+.time-icon-arrow {
+    display: none !important;
+    transition: transform 0.25s ease;
+}
+
+.time-icon-clock {
+    display: block !important;
+}
+
+.dropdown-select#timeSelect[aria-expanded="true"] .time-icon-clock {
+    display: none !important;
+}
+
+.dropdown-select#timeSelect[aria-expanded="true"] .time-icon-arrow {
+    display: block !important;
+    transform: rotate(180deg);
+}
+
+.time-field .arrow img {
+    width: 24px;
+}
+
+/* Pilihan yang muncul di bawah */
+.dropdown-menu {
+    position: absolute;
+    top: 61px;
+    left: 0;
+
+    width: 100%;
+
+    background-color: white;
+    z-index: 999;
+
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-option {
+    height: 39px;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+    color: #555;
+
+    cursor: pointer;
+}
+
+.time-menu .dropdown-option {
+    justify-content: space-between;
+}
+
+.time-menu .dropdown-option span:last-child {
+    color: #7e807e;
+    font-size: 11px;
+}
+
+.dropdown-option:hover,
+.dropdown-option:focus-visible {
+    background-color: #D5ECD3;
+    color: #5CB85F;
+    font-weight: bold;
+    outline: none;
+}
+.passenger-select {
+    position: relative;
+}
+
+.passenger-select input {
+    width: 215px;
+    height: 38px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.passenger-select i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 15px;
+    color: #777;
+}
+.date-select {
+    position: relative;
+    width: 100%;
+    height: 38px;
+    box-sizing: border-box;
+
+    border: 1px solid #b8cdb9;
+    border-left: 4px solid #5CB85F;
+    border-radius: 8px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #666666;
+    font-size: 12px;
+
+    background-color: #f8fbf8;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.date-select:hover,
+.date-select:focus-within {
+    border-color: #5CB85F;
+    box-shadow: 0 0 0 3px rgba(92, 184, 95, 0.14);
+}
+
+.date-select input[type="date"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.date-select i {
+    font-size: 15px;
+    color: #7e807e;
+}
+.coverhslpencarian {
+    background-color: #f1f3ff;
+    height: 300px;
+    width: 100%;
+    padding-top: 104px;
+    box-sizing: border-box;
+}
+
+.time-field {
+    position: relative;
+}
+
+.time-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #444;
+}
+
 @media screen and (max-width: 768px) {
 
     /* =========================
@@ -564,13 +922,16 @@ html {
     ========================= */
 
     .menu {
-        position: relative;
+        position: fixed;
         width: 100%;
         height: 110px;
         padding: 0;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        z-index: 1100;
+        background-color: rgba(241, 243, 255, 0.96);
+        backdrop-filter: blur(8px);
     }
 
     .menukiri {
@@ -754,6 +1115,7 @@ html {
     .cover {
         min-height: 870px;
         height: auto;
+        padding-top: 110px;
 
         overflow: hidden;
     }
@@ -825,18 +1187,6 @@ html {
         height: 100%;
 
         position: relative;
-    }
-
-    .bckmobil {
-        position: absolute;
-
-        width: 95%;
-        height: 130px;
-
-        right: 0;
-        bottom: 0;
-
-        background-color: #0D28A6;
     }
 
     .imgcar {
@@ -1284,5 +1634,40 @@ html {
     }
     .footer2{
         font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1100px) {
+    .form-fields-centered {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .formcarimobil {
+        width: 100%;
+        height: auto;
+        margin-top: -40px;
+        align-items: stretch;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .formcarimobil > div:nth-child(2) {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .formcarimobil > div,
+    .formcarimobil div input,
+    .dropdown-select,
+    .dropdown-menu,
+    .formcarimobil button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .dropdown-menu {
+        top: 61px;
     }
 }

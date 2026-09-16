@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hasil Pencarian</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body>
+        <div class="coverhslpencarian">
+            <header class="menu">
+                <div class="menukiri">
+                    <div class="logo"></div>
+                </div>
+                <!-- Hamburger -->
+                <button class="hamburger" onclick="bukaMenu()">☰</button>
+                <!-- Overlay -->
+                <div class="overlay" onclick="tutupMenu()"></div>
+                <!-- Menu kanan -->
+                <div class="menukanan">
+                    <div class="menuheader">
+                        <b>BCR</b>
+                        <button class="closemenu" onclick="tutupMenu()">×</button>
+                    </div>
+                    <a href="#our-services">Our Services</a>
+                    <a href="#why-us">Why Us</a>
+                    <a href="#testimony">Testimony</a>
+                    <a href="#faq">FAQ</a>
+
+                    <button class="btnregis" type="button" onclick="window.location.href='#';">Register</button>
+                </div>
+            </header>
+        </div>
+        <div class="formcari">
+            <form class="formcarimobil" action="" method="post">
+                <div>
+                    <h1>Pencarianmu</h1>
+                </div>
+                <div>
+                    <div class="inputcarimobil dropdown">
+                        <label for="dropdownSelect">Tipe Driver</label>
+                        <div class="dropdown-select" id="dropdownSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                            <span id="selectedText">Pilih Tipe Driver</span>
+                            <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownMenu" role="listbox">
+                            <div class="dropdown-option" data-value="dengan_sopir" role="option" tabindex="0">
+                                Dengan Sopir
+                            </div>
+                            <div class="dropdown-option" data-value="tanpa_sopir" role="option" tabindex="0">
+                                Tanpa Sopir (Lepas Kunci)
+                            </div>
+                        </div>
+                        <input type="hidden" name="tipe_driver" id="tipeDriver" required>
+                    </div>
+                    <div class="inputcarimobil">
+                        <label for="tanggal">Tanggal <span class="field-hint">Pilih tanggal</span></label>
+
+                        <div class="date-select" id="dateSelect">
+                            <span id="selectedDateText">Pilih Tanggal</span>
+                            <i class="fa-regular fa-calendar"></i>
+                            <input id="tanggal" type="date" name="tanggal" required>
+                        </div>
+                    </div>
+                    <div class="inputcarimobil dropdown time-field">
+                        <label for="timeSelect">Waktu Jemput/Ambil</label>
+                        <div class="dropdown-select" id="timeSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                            <span id="selectedTimeText">Pilih Waktu</span>
+                            <span class="arrow time-icon"><i class="fa-regular fa-clock time-icon-clock"></i><i class="fa-solid fa-chevron-down time-icon-arrow"></i></span>
+                        </div>
+                        <div class="dropdown-menu time-menu" id="timeMenu" role="listbox">
+                            <div class="dropdown-option" data-value="08:00" role="option" tabindex="0"><span>08.00</span><span>WITA</span></div>
+                            <div class="dropdown-option" data-value="09:00" role="option" tabindex="0"><span>09.00</span><span>WITA</span></div>
+                            <div class="dropdown-option" data-value="10:00" role="option" tabindex="0"><span>10.00</span><span>WITA</span></div>
+                            <div class="dropdown-option" data-value="11:00" role="option" tabindex="0"><span>11.00</span><span>WITA</span></div>
+                            <div class="dropdown-option" data-value="12:00" role="option" tabindex="0"><span>12.00</span><span>WITA</span></div>
+                        </div>
+                        <input type="hidden" name="waktu" id="waktu" required>
+                    </div>
+                    <div class="inputcarimobil">
+                        <label for="jumlahPenumpang">Jumlah Penumpang <span class="field-hint">(Opsional)</span></label>
+
+                        <div class="passenger-select">
+                            <input
+                                id="jumlahPenumpang"
+                                type="number"
+                                name="jumlah_penumpang"
+                                min="0"
+                                inputmode="numeric"
+                                placeholder="Jumlah Penumpang"
+                            >
+
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+                    <!-- <button type="submit">Cari Mobil</button> -->
+                    <button class="btncari" type="button" onclick="window.location.href='hasilpencarian.html';">Cari Mobil</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            function bukaMenu() {
+                document.querySelector('.menukanan').classList.add('active');
+                document.querySelector('.overlay').classList.add('active');
+            }
+
+            function tutupMenu() {
+                document.querySelector('.menukanan').classList.remove('active');
+                document.querySelector('.overlay').classList.remove('active');
+            }
+
+            const dropdownSelect = document.querySelector('#dropdownSelect');
+            const dropdownMenu = document.querySelector('#dropdownMenu');
+            const selectedText = document.querySelector('#selectedText');
+            const tipeDriver = document.querySelector('#tipeDriver');
+            const timeSelect = document.querySelector('#timeSelect');
+            const timeMenu = document.querySelector('#timeMenu');
+            const selectedTimeText = document.querySelector('#selectedTimeText');
+            const waktu = document.querySelector('#waktu');
+            const tanggal = document.querySelector('#tanggal');
+            const selectedDateText = document.querySelector('#selectedDateText');
+            const formCariMobil = document.querySelector('.formcarimobil');
+
+            formCariMobil.addEventListener('focusin', function () {
+                document.body.classList.add('form-active');
+            });
+
+            formCariMobil.addEventListener('focusout', function () {
+                setTimeout(function () {
+                    if (!formCariMobil.contains(document.activeElement)) {
+                        document.body.classList.remove('form-active');
+                    }
+                }, 0);
+            });
+
+            tanggal.addEventListener('change', function () {
+                if (tanggal.value) {
+                    const selectedDate = new Date(`${tanggal.value}T00:00:00`);
+                    selectedDateText.textContent = selectedDate.toLocaleDateString('id-ID', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric'
+                    });
+                }
+            });
+
+            function toggleDropdown() {
+                const isOpen = dropdownMenu.classList.toggle('show');
+                dropdownSelect.setAttribute('aria-expanded', isOpen);
+            }
+
+            dropdownSelect.addEventListener('click', toggleDropdown);
+            dropdownSelect.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleDropdown();
+                }
+            });
+
+            dropdownMenu.querySelectorAll('.dropdown-option').forEach(function (option) {
+                function selectOption() {
+                    selectedText.textContent = option.textContent.trim();
+                    tipeDriver.value = option.dataset.value;
+                    dropdownMenu.classList.remove('show');
+                    dropdownSelect.setAttribute('aria-expanded', 'false');
+                }
+
+                option.addEventListener('click', selectOption);
+                option.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        selectOption();
+                    }
+                });
+            });
+
+            function toggleTimeDropdown() {
+                const isOpen = timeMenu.classList.toggle('show');
+                timeSelect.setAttribute('aria-expanded', isOpen);
+            }
+
+            timeSelect.addEventListener('click', toggleTimeDropdown);
+            timeSelect.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleTimeDropdown();
+                }
+            });
+
+            timeMenu.querySelectorAll('.dropdown-option').forEach(function (option) {
+                function selectTime() {
+                    selectedTimeText.textContent = `${option.children[0].textContent} ${option.children[1].textContent}`;
+                    waktu.value = option.dataset.value;
+                    timeMenu.classList.remove('show');
+                    timeSelect.setAttribute('aria-expanded', 'false');
+                }
+
+                option.addEventListener('click', selectTime);
+                option.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        selectTime();
+                    }
+                });
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownMenu.classList.remove('show');
+                    dropdownSelect.setAttribute('aria-expanded', 'false');
+                    timeMenu.classList.remove('show');
+                    timeSelect.setAttribute('aria-expanded', 'false');
+                }
+            });
+        </script>
+    </body>
+</html>
