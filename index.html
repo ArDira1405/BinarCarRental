@@ -188,25 +188,30 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </div>
         <div class="questkanan">
-            <div class="cardquest">
-                <p>Apa saja syarat yang dibutuhkan?</p>
+            <div class="cardquest" tabindex="0" role="button" aria-expanded="false">
+                <p class="quest-question">Apa saja syarat yang dibutuhkan?</p>
                 <img src="img/down.png" alt="tanda kebawah">
+                <p class="quest-answer">Kamu perlu menyiapkan identitas diri yang masih berlaku dan dokumen pendukung sesuai ketentuan sewa mobil.</p>
             </div>
-            <div class="cardquest">
-                <p>Berapa hari minimal sewa mobil lepas kunci?</p>
+            <div class="cardquest" tabindex="0" role="button" aria-expanded="false">
+                <p class="quest-question">Berapa hari minimal sewa mobil lepas kunci?</p>
                 <img src="img/down.png" alt="tanda kebawah">
+                <p class="quest-answer">Minimal sewa mobil lepas kunci adalah satu hari atau 24 jam.</p>
             </div>
-            <div class="cardquest">
-                <p>Berapa hari sebelumnya sabaiknya booking sewa mobil?</p>
+            <div class="cardquest" tabindex="0" role="button" aria-expanded="false">
+                <p class="quest-question">Berapa hari sebelumnya sabaiknya booking sewa mobil?</p>
                 <img src="img/down.png" alt="tanda kebawah">
+                <p class="quest-answer">Sebaiknya lakukan booking beberapa hari sebelum jadwal penggunaan agar pilihan mobil tetap tersedia.</p>
             </div>
-            <div class="cardquest">
-                <p>Apakah Ada biaya antar-jemput?</p>
+            <div class="cardquest" tabindex="0" role="button" aria-expanded="false">
+                <p class="quest-question">Apakah Ada biaya antar-jemput?</p>
                 <img src="img/down.png" alt="tanda kebawah">
+                <p class="quest-answer">Biaya antar-jemput menyesuaikan lokasi dan detail layanan yang dipilih.</p>
             </div>
-            <div class="cardquest">
-                <p>Bagaimana jika terjadi kecelakaan</p>
+            <div class="cardquest" tabindex="0" role="button" aria-expanded="false">
+                <p class="quest-question">Bagaimana jika terjadi kecelakaan</p>
                 <img src="img/down.png" alt="tanda kebawah">
+                <p class="quest-answer">Segera hubungi pihak rental agar kami dapat membantu proses penanganan sesuai prosedur.</p>
             </div>
         </div>
     </div>
@@ -218,19 +223,19 @@
             <p>081-233-334-808</p>
         </div>
         <div class="footer2">
-            <p>Our services</p>
-            <p>Why Us</p>
-            <p>Testimonial</p>
-            <p>FAQ</p>
+            <a href="#our-services">Our Services</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#testimony">Testimony</a>
+            <a href="#faq">FAQ</a>
         </div>
         <div class="footer3">
             <p>Connect with us</p>
             <div class="footer3img">
-                <img src="img/icon_facebook.png" alt="facebook">
-                <img src="img/icon_instagram.png" alt="ig">
-                <img src="img/icon_twitter.png" alt="twitter">
-                <img src="img/icon_mail.png" alt="email">
-                <img src="img/icon_twitch.png" alt="...">
+                <a href="#" aria-label="Facebook"><img src="img/icon_facebook.png" alt="facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="img/icon_instagram.png" alt="instagram"></a>
+                <a href="#" aria-label="Twitter"><img src="img/icon_twitter.png" alt="twitter"></a>
+                <a href="#" aria-label="Email"><img src="img/icon_mail.png" alt="email"></a>
+                <a href="#" aria-label="Twitch"><img src="img/icon_twitch.png" alt="twitch"></a>
             </div>
         </div>
         <div class="footer4">
@@ -252,6 +257,21 @@
 
     document.querySelectorAll('.menukanan a').forEach(function (link) {
         link.addEventListener('click', tutupMenu);
+    });
+
+    document.querySelectorAll('.cardquest').forEach(function (card) {
+        function toggleQuestion() {
+            const isOpen = card.classList.toggle('active');
+            card.setAttribute('aria-expanded', isOpen);
+        }
+
+        card.addEventListener('click', toggleQuestion);
+        card.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleQuestion();
+            }
+        });
     });
 
     const testimonialTrack = document.querySelector('.testimonial-track');

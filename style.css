@@ -466,25 +466,56 @@ html {
     width: 55%;
     display: flex;
     gap:10px;
-    flex-direction: column  ;
+    flex-direction: column;
 }
-.questkanan p{
+.cardquest .quest-question{
     padding-left: 20px;
-    width: 680px;
+    width: auto;
+    flex: 1;
     font-size: 14px;
 }
 .cardquest{
+    box-sizing: border-box;
     border-radius: 3px;
     align-items: center;
     display: flex;
-    width: 750px;
-    height: 60px;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 60px;
     border: 1px solid #b1b1b1;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .cardquest img{
     width: 30px;
-    justify-content:flex-end ;
+    margin-right: 20px;
+    transition: transform 0.25s ease;
+}
+
+.cardquest .quest-answer {
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+}
+
+.cardquest.active {
+    background-color: #f8f9ff;
+}
+
+.cardquest.active img {
+    transform: rotate(180deg);
+}
+
+.cardquest.active .quest-answer {
+    max-height: 100px;
+    padding: 0 20px 18px;
 }
 /* ============================================================================================== */
 /* page 7 // footer */
@@ -501,6 +532,20 @@ html {
 .footer3img{
     display: flex;
     gap: 20px;
+}
+.footer2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer2 a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer3img a {
+    cursor: pointer;
 }
 .footer3 img{
     width: 40px;
@@ -1215,8 +1260,14 @@ html {
     .questkanan{
         width: 100%;
     }
-    .cardquest p{
-        width: 86%;
+    .cardquest .quest-question{
+        width: auto;
+        padding-left: 15px;
+    }
+    .cardquest .quest-answer{
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .cardquest{
         width: 100%;
