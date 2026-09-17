@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Mobil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <section class="coverhslpencarian">
+        <header class="menu">
+            <div class="menukiri">
+                <div class="logo"></div>
+            </div>
+            <!-- Hamburger -->
+            <button class="hamburger" onclick="bukaMenu()">☰</button>
+            <!-- Overlay -->
+            <div class="overlay" onclick="tutupMenu()"></div>
+            <!-- Menu kanan -->
+            <div class="menukanan">
+                <div class="menuheader">
+                    <b>BCR</b>
+                    <button class="closemenu" onclick="tutupMenu()">×</button>
+                </div>
+                <a href="#our-services">Our Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#testimony">Testimony</a>
+                <a href="#faq">FAQ</a>
+                    <button class="btnregis" type="button" onclick="window.location.href='#';">Register</button>
+                </div>
+            </header>
+        </section>
+    <section class="formcari">
+        <form class="formcarimobil" action="" method="post">
+            <div class="form-title" aria-hidden="true"></div>
+            <div class="form-fields">
+                <div class="inputcarimobil dropdown">
+                    <label for="dropdownSelect">Tipe Driver</label>
+                    <div class="dropdown-select" id="dropdownSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="selectedText">Pilih Tipe Driver</span>
+                        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <div class="dropdown-menu" id="dropdownMenu" role="listbox">
+                        <div class="dropdown-option" data-value="dengan_sopir" role="option" tabindex="0">
+                            Dengan Sopir
+                        </div>
+                        <div class="dropdown-option" data-value="tanpa_sopir" role="option" tabindex="0">
+                            Tanpa Sopir (Lepas Kunci)
+                        </div>
+                    </div>
+                    <input type="hidden" name="tipe_driver" id="tipeDriver" required>
+                </div>
+                <div class="inputcarimobil">
+                    <label for="tanggal">Tanggal <span class="field-hint">Pilih tanggal</span></label>
+                    <div class="date-select" id="dateSelect">
+                        <span id="selectedDateText">Pilih Tanggal</span>
+                        <i class="fa-regular fa-calendar"></i>
+                        <input id="tanggal" type="date" name="tanggal" required>
+                    </div>
+                </div>
+                <div class="inputcarimobil dropdown time-field">
+                    <label for="timeSelect">Waktu Jemput/Ambil</label>
+                    <div class="dropdown-select" id="timeSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="selectedTimeText">Pilih Waktu</span>
+                        <span class="arrow time-icon"><i class="fa-regular fa-clock time-icon-clock"></i><i class="fa-solid fa-chevron-down time-icon-arrow"></i></span>
+                    </div>
+                    <div class="dropdown-menu time-menu" id="timeMenu" role="listbox">
+                        <div class="dropdown-option" data-value="08:00" role="option" tabindex="0"><span>08.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="09:00" role="option" tabindex="0"><span>09.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="10:00" role="option" tabindex="0"><span>10.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="11:00" role="option" tabindex="0"><span>11.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="12:00" role="option" tabindex="0"><span>12.00</span><span>WITA</span></div>
+                    </div>
+                    <input type="hidden" name="waktu" id="waktu" required>
+                </div>
+                <div class="inputcarimobil">
+                    <label for="jumlahPenumpang">Jumlah Penumpang <span class="field-hint">(Opsional)</span></label>
+                    <div class="passenger-select">
+                        <input id="jumlahPenumpang" type="number" name="jumlah_penumpang" min="0" inputmode="numeric" placeholder="Jumlah Penumpang">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section class="detailmobil">
+        <div class="detailmobilisi">
+            <div class="detailmobilkiri-wrapper">
+                <div class="detailmobilkiri">
+                <h1>Tentang Paket</h1>
+                <p>Include</p>
+                    <ul>
+                    <li> Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
+                    <li> Sudah termasuk bensin selama 12 jam</li>
+                    <li> Sudah termasuk Tiket Wisata</li>
+                    <li> Sudah termasuk pajak</li>
+                </ul>
+                <p>Exclude</p>
+                <ul>
+                    <li> Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                    <li> Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                    <li> Tidak termasuk akomodasi penginapan</li>
+                </ul>
+                <div class="detail-accordion">
+                    <div class="detail-accordion-item">
+                        <h1 class="RRO">
+                            <button class="detail-accordion-button" type="button" aria-expanded="false" aria-controls="rro-detail">
+                                Refund, Reschedule, Overtime
+                                <img src="img/down.png" alt="Buka keterangan Refund, Reschedule, Overtime">
+                            </button>
+                        </h1>
+                        <ul class="detail-accordion-content" id="rro-detail" hidden>
+                            <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                            <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                            <li>Tidak termasuk akomodasi penginapan</li>
+                            <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                            <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                            <li>Tidak termasuk akomodasi penginapan</li>
+                            <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                            <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                            <li>Tidak termasuk akomodasi penginapan</li>
+                            <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                            <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                            <li>Tidak termasuk akomodasi penginapan</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <button class="detailmobilkiri-button" type="button" onclick="window.location.href='detailmobil.html';">Lanjut Pembayaran</button>
+            </div>
+            <div class="detailmobilkanan">
+                <div class="detailmobilkanangambar"><img src="img/img_car2.png" alt="Gambar Mobil"></div>
+                <h1>Nama/Tipe Mobil</h1>
+                <div class="cardmobilinfoo">
+                    <div><i class="fa-solid fa-user"></i><span>4 orang</span></div>
+                    <div><i class="fa-solid fa-gear"></i><span>Manual</span></div>
+                    <div><i class="fa-regular fa-calendar"></i><span>Tahun 2020</span></div>
+                </div>
+                <div class="cardmobilharga" >
+                    <p>Total <span>Rp 430.000</span></p>
+                </div>
+                <button type="button" onclick="window.location.href='detailmobil.html';">Lanjutkan Pembayaran</button>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+            <div class="footer1">
+                <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+                <p>binarcarrental@gmail.com</p>
+                <p>081-233-334-808</p>
+            </div>
+            <div class="footer2">
+                <a href="#our-services">Our Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#testimony">Testimony</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer3">
+                <p>Connect with us</p>
+                <div class="footer3img">
+                    <a href="#" aria-label="Facebook"><img src="img/icon_facebook.png" alt="facebook"></a>
+                    <a href="#" aria-label="Instagram"><img src="img/icon_instagram.png" alt="instagram"></a>
+                    <a href="#" aria-label="Twitter"><img src="img/icon_twitter.png" alt="twitter"></a>
+                    <a href="#" aria-label="Email"><img src="img/icon_mail.png" alt="email"></a>
+                    <a href="#" aria-label="Twitch"><img src="img/icon_twitch.png" alt="twitch"></a>
+                </div>
+            </div>
+            <div class="footer4">
+                <p>Copyright Binar 2022</p>
+                <div class="kotakbiru"></div>
+            </div>
+        </section>
+    <script>
+        document.querySelectorAll('.detail-accordion-button').forEach(function (button) {
+            button.addEventListener('click', function () {
+                const isOpen = button.getAttribute('aria-expanded') === 'true';
+                const content = document.getElementById(button.getAttribute('aria-controls'));
+
+                button.setAttribute('aria-expanded', String(!isOpen));
+                content.hidden = isOpen;
+            });
+        });
+    </script>
+</body>
+</html>

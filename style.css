@@ -962,13 +962,16 @@ body.form-active > *:not(.formcari) {
 }
 .cardmobilinfo{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
-    gap: 10px;
-    line-height: 1.5;
+    /* gap: 15px; */
+    line-height: 2.5;
+    color: #606060;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    /* margin:0; */
 }
+
 .cardmobilinfo div{
     gap: 10px;
     align-items: center;
@@ -998,12 +1001,193 @@ body.form-active > *:not(.formcari) {
     border-radius: 3px;
     cursor: pointer;
 }
+.detailmobil {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin:0;
+    font-family: Arial, sans-serif;
+}
+.detailmobilisi {
+    /* box-shadow: 0 4px 4px rgba(160, 160, 160, 0.15);
+    border: 0.1px solid #ededed; */
+    width: 77%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+.detailmobilkiri-wrapper {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 30px;
+}
+.detailmobilkiri{
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    box-shadow: 0 4px 4px rgba(160, 160, 160, 0.15);
+    border: 0.1px solid #ededed;
+    border-radius: 8px;
+    padding: 30px;
+}
+.detailmobilkiri-button {
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    background-color: #5CB85F;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.detailmobilkiri h1{
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 10px;
+    /* font-weight: bold; */
+}
+.detailmobilkiri p{
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+.detailmobilkiri ul{
+    margin: 0;
+}
+.detailmobilkiri ul li{
+    font-size: 16px;
+    margin: 0;
+    color: #a8a8a8;
+    line-height: 1.5;
+}
+.RRO{
+    margin: 0 0 10px;
+}
+.detail-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.detail-accordion-item {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 10px;
+}
+.detail-accordion-button {
+    width: 100%;
+    display: flex;
+    font-size: 18px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+.detail-accordion-button:focus-visible {
+    outline: 2px solid #5CB85F;
+    outline-offset: 4px;
+}
+.detail-accordion-button img{
+    width: 30px;
+    transition: transform 0.25s ease;
+}
+.detail-accordion-button[aria-expanded="true"] img {
+    transform: rotate(180deg);
+}
+.detail-accordion-content {
+    margin: 0;
+}
+.detailmobilkanan{
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    box-shadow: 0 4px 4px rgba(160, 160, 160, 0.15);
+    border: 0.1px solid #ededed;
+    border-radius: 8px;
+    padding: 30px;
+}
+.detailmobilkanan h1{
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
+.detailmobilkanangambar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.detailmobilkanangambar img{
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+.detailmobilkanan button{
+    width: 100%;
+    height: 50px;
+    font-weight: bold;  
+    background-color: #5CB85F;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.cardmobilinfoo{
+    display: flex;
+    font-size: 16px;
+    /* flex-direction: column; */
+    gap: 27px;
+    color: #8e8e8e;
+}
+.cardmobilinfoo div{
+    display: flex;
+    /* width: 100%; */
+    gap: 5px;
+    align-items: center;
+}
+.cardmobilharga p{
+    width: 100%;
+    font-size: 20px;
+    padding-top:60px;
+    justify-content: space-between;
+    display: flex;
+}
+.cardmobilharga span{
+    font-weight: bold;
+}
 @media screen and (max-width: 768px) {
 
-    /* =========================
-       HEADER
-    ========================= */
+    .detailmobilisi {
+        width: 90%;
+        flex-direction: column;
+        gap: 20px;
+    }
 
+    .detailmobilkiri-wrapper,
+    .detailmobilkanan {
+        width: 100%;
+    }
+
+    .detailmobilkiri-button {
+        width: 100%;
+    }
+    
+    /* =========================
+    HEADER
+    ========================= */
+    
     .menu {
         position: fixed;
         width: 100%;
