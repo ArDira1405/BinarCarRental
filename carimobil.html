@@ -51,53 +51,53 @@
     <section class="formcari">
         <form class="formcarimobil" action="" method="post">
             <div class="form-title" aria-hidden="true"></div>
-            <div>
-            <div class="inputcarimobil dropdown">
-                <label for="dropdownSelect">Tipe Driver</label>
-                <div class="dropdown-select" id="dropdownSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
-                    <span id="selectedText">Pilih Tipe Driver</span>
-                    <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
-                </div>
-                <div class="dropdown-menu" id="dropdownMenu" role="listbox">
-                    <div class="dropdown-option" data-value="dengan_sopir" role="option" tabindex="0">
-                        Dengan Sopir
+            <div class="form-fields">
+                <div class="inputcarimobil dropdown">
+                    <label for="dropdownSelect">Tipe Driver</label>
+                    <div class="dropdown-select" id="dropdownSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="selectedText">Pilih Tipe Driver</span>
+                        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
                     </div>
-                    <div class="dropdown-option" data-value="tanpa_sopir" role="option" tabindex="0">
-                        Tanpa Sopir (Lepas Kunci)
+                    <div class="dropdown-menu" id="dropdownMenu" role="listbox">
+                        <div class="dropdown-option" data-value="dengan_sopir" role="option" tabindex="0">
+                            Dengan Sopir
+                        </div>
+                        <div class="dropdown-option" data-value="tanpa_sopir" role="option" tabindex="0">
+                            Tanpa Sopir (Lepas Kunci)
+                        </div>
+                    </div>
+                    <input type="hidden" name="tipe_driver" id="tipeDriver" required>
+                </div>
+                <div class="inputcarimobil">
+                    <label for="tanggal">Tanggal <span class="field-hint">Pilih tanggal</span></label>
+                    <div class="date-select" id="dateSelect">
+                        <span id="selectedDateText">Pilih Tanggal</span>
+                        <i class="fa-regular fa-calendar"></i>
+                        <input id="tanggal" type="date" name="tanggal" required>
                     </div>
                 </div>
-                <input type="hidden" name="tipe_driver" id="tipeDriver" required>
-            </div>
-            <div class="inputcarimobil">
-                <label for="tanggal">Tanggal <span class="field-hint">Pilih tanggal</span></label>
-                <div class="date-select" id="dateSelect">
-                    <span id="selectedDateText">Pilih Tanggal</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <input id="tanggal" type="date" name="tanggal" required>
+                <div class="inputcarimobil dropdown time-field">
+                    <label for="timeSelect">Waktu Jemput/Ambil</label>
+                    <div class="dropdown-select" id="timeSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                        <span id="selectedTimeText">Pilih Waktu</span>
+                        <span class="arrow time-icon"><i class="fa-regular fa-clock time-icon-clock"></i><i class="fa-solid fa-chevron-down time-icon-arrow"></i></span>
+                    </div>
+                    <div class="dropdown-menu time-menu" id="timeMenu" role="listbox">
+                        <div class="dropdown-option" data-value="08:00" role="option" tabindex="0"><span>08.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="09:00" role="option" tabindex="0"><span>09.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="10:00" role="option" tabindex="0"><span>10.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="11:00" role="option" tabindex="0"><span>11.00</span><span>WITA</span></div>
+                        <div class="dropdown-option" data-value="12:00" role="option" tabindex="0"><span>12.00</span><span>WITA</span></div>
+                    </div>
+                    <input type="hidden" name="waktu" id="waktu" required>
                 </div>
-            </div>
-            <div class="inputcarimobil dropdown time-field">
-                <label for="timeSelect">Waktu Jemput/Ambil</label>
-                <div class="dropdown-select" id="timeSelect" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
-                    <span id="selectedTimeText">Pilih Waktu</span>
-                    <span class="arrow time-icon"><i class="fa-regular fa-clock time-icon-clock"></i><i class="fa-solid fa-chevron-down time-icon-arrow"></i></span>
+                <div class="inputcarimobil">
+                    <label for="jumlahPenumpang">Jumlah Penumpang <span class="field-hint">(Opsional)</span></label>
+                    <div class="passenger-select">
+                        <input id="jumlahPenumpang" type="number" name="jumlah_penumpang" min="0" inputmode="numeric" placeholder="Jumlah Penumpang">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
                 </div>
-                <div class="dropdown-menu time-menu" id="timeMenu" role="listbox">
-                    <div class="dropdown-option" data-value="08:00" role="option" tabindex="0"><span>08.00</span><span>WITA</span></div>
-                    <div class="dropdown-option" data-value="09:00" role="option" tabindex="0"><span>09.00</span><span>WITA</span></div>
-                    <div class="dropdown-option" data-value="10:00" role="option" tabindex="0"><span>10.00</span><span>WITA</span></div>
-                    <div class="dropdown-option" data-value="11:00" role="option" tabindex="0"><span>11.00</span><span>WITA</span></div>
-                    <div class="dropdown-option" data-value="12:00" role="option" tabindex="0"><span>12.00</span><span>WITA</span></div>
-                </div>
-                <input type="hidden" name="waktu" id="waktu" required>
-            </div>
-            <div class="inputcarimobil">
-                <label for="jumlahPenumpang">Jumlah Penumpang <span class="field-hint">(Opsional)</span></label>
-                <div class="passenger-select">
-                    <input id="jumlahPenumpang" type="number" name="jumlah_penumpang" min="0" inputmode="numeric" placeholder="Jumlah Penumpang">
-                    <i class="fa-solid fa-users"></i>
-                </div>
-            </div>
             <!-- <button type="submit">Cari Mobil</button> -->
             <button class="btncari" type="button" onclick="window.location.href='hasilpencarian.html';">Cari Mobil</button>
             </div>
