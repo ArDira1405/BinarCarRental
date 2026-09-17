@@ -983,7 +983,7 @@ body.form-active > *:not(.formcari) {
     box-shadow: 0 4px 4px rgba(160, 160, 160, 0.15);
     border: 0.1px solid #ededed;
     border-radius: 8px;
-    padding: 30px;
+    padding: 0 30px 30px 30px;
 }
 .detailmobilkiri-button {
     width: 200px;
@@ -999,13 +999,12 @@ body.form-active > *:not(.formcari) {
 .detailmobilkiri h1{
     font-family: Arial, sans-serif;
     font-size: 18px;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 30px 0 10px 0;
 }
 .detailmobilkiri p{
     font-family: Arial, sans-serif;
     font-size: 18px;
-    margin: 0;
+    margin: 20px 0 5px 0;
 }
 .detailmobilkiri ul{
     margin: 0;
@@ -1014,7 +1013,7 @@ body.form-active > *:not(.formcari) {
     font-size: 16px;
     margin: 0;
     color: #a8a8a8;
-    line-height: 1.5;
+    line-height: 1.9;
 }
 .RRO{
     margin: 0 0 10px;
@@ -1056,6 +1055,7 @@ body.form-active > *:not(.formcari) {
 .detail-accordion-content {
     margin: 0;
 }
+
 .detailmobilkanan{
     width: 38%;
     display: flex;
