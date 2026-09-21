@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <section class="coverpembayaran">
+        <header class="menu">
+            <div class="menukiri">
+                <div class="logo"></div>
+            </div>
+            <!-- Hamburger -->
+            <button class="hamburger" onclick="bukaMenu()">☰</button>
+            <!-- Overlay -->
+            <div class="overlay" onclick="tutupMenu()"></div>
+            <!-- Menu kanan -->
+            <div class="menukanan">
+                <div class="menuheader">
+                    <b>BCR</b>
+                    <button class="closemenu" onclick="tutupMenu()">×</button>
+                </div>
+                <a href="#our-services">Our Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#testimony">Testimony</a>
+                <a href="#faq">FAQ</a>
+                <button class="btnregis" type="button" onclick="window.location.href='#';">Register</button>
+            </div>
+        </header>
+        <div class="infoalur">
+                <div class="infoalurjudul">
+                    <img src="img/left.png" alt="panahkiri" onclick="history.back()">
+                    <h1>Pembayaran</h1>
+                </div>
+                <div class="infoalurstep">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Pilih Metode</span>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step active">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Bayar</span>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Tiket</span>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section class="prosesbayar">
+        <div class="prosesbayarkiri">
+            <div class="prosesbayarkiri1">
+                <div class="infobayarkiri1">
+                    <h1>Selesaikan Transfer Sebelum</h1>
+                    <p>Rabu, 19 Jun 2022 jam 13,00 Wita</p>
+                </div>
+                <div class="countdown">
+                    <div class="time-box" id="hours-remaining">23</div>
+                    <span>:</span>
+                    <div class="time-box" id="minutes-remaining">59</div>
+                    <span>:</span>
+                    <div class="time-box" id="seconds-remaining">59</div>               
+                </div>                
+            </div>
+            <div class="prosesbayarkiri2">
+                <h1>Lakukan Transfer Ke</h1>
+                <div class="inforekening">
+                    <p class="boxBCA">BCA</p>
+                    <p class="nameBCA">BCA Transfer <br>a.n Binar Car Rental</p>
+                </div>
+                <p class="text">Nomor Rekening</p>
+                <div class="boxbayar">
+                    <p>xxxx-xxxx-xxxx</p><img src="img/copy.png" alt="">
+                </div>
+                <p class="text">Total Bayar</p>
+                <div class="boxbayar2">
+                    <p>Rp 230.000</p><img src="img/copy.png" alt="">
+                </div>
+            </div>
+            <div class="prosesbayarkiri3">
+                <h1>Instruksi Pembayaran</h1>
+
+                <div class="payment-tabs">
+                    <div class="tab active" onclick="showInstruction(0)">
+                        ATM BCA
+                    </div>
+
+                    <div class="tab" onclick="showInstruction(1)">
+                        M-BCA
+                    </div>
+
+                    <div class="tab" onclick="showInstruction(2)">
+                        BCA Klik
+                    </div>
+
+                    <div class="tab" onclick="showInstruction(3)">
+                        Internet Banking
+                    </div>
+                </div>
+
+                <div class="instruction-content">
+                    <ul id="instruction-list">
+                        <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                        <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                        <li>Tidak termasuk akomodasi penginapan</li>
+                        <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                        <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                        <li>Tidak termasuk akomodasi penginapan</li>
+                        <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                        <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
+                        <li>Tidak termasuk akomodasi penginapan
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="prosesbayarkanan">
+            <div class="formconfirm">
+                <p>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
+                <button class="btnconfirmpay" type="button" onclick="showPaymentConfirmation()">Konfirmasi Pembayaran</button>
+            </div>
+            <div id="payment-confirmation" class="payment-confirmation" hidden>
+                <div class="judulcountdown">
+                    <h1>Konfirmasi Pembayaran</h1>
+                    <div class="countdown">
+                        <div class="time-box" id="payment-minutes">10</div>
+                        <span>:</span>
+                        <div class="time-box" id="payment-seconds">00</div>
+                    </div>
+                </div> 
+                <p>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
+                <h2>Upload Bukti Pembayaran</h2>
+                <p>
+                    Untuk membantu kami lebih cepat melakukan pengecekan.
+                    Kamu bisa upload bukti bayarmu
+                </p>
+                <div class="tempatbukti">
+                    <div class="wrapimgbukti">
+                        <label for="bukti-pembayaran">
+                            <img id="preview-bukti" src="img/image.png" alt="Upload bukti pembayaran">
+                        </label>
+
+                        <input 
+                            type="file" 
+                            id="bukti-pembayaran" 
+                            accept="image/*"
+                            onchange="previewBukti(event)"
+                        >
+                    </div>
+                </div>
+                <button class="btnupload" type="button" onclick="window.location.href='halamantiket.html'">Upload</button>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer1">
+            <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+            <p>binarcarrental@gmail.com</p>
+            <p>081-233-334-808</p>
+        </div>
+        <div class="footer2">
+            <a href="#our-services">Our Services</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#testimony">Testimony</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer3">
+            <p>Connect with us</p>
+            <div class="footer3img">
+                <a href="#" aria-label="Facebook"><img src="img/icon_facebook.png" alt="facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="img/icon_instagram.png" alt="instagram"></a>
+                <a href="#" aria-label="Twitter"><img src="img/icon_twitter.png" alt="twitter"></a>
+                <a href="#" aria-label="Email"><img src="img/icon_mail.png" alt="email"></a>
+                <a href="#" aria-label="Twitch"><img src="img/icon_twitch.png" alt="twitch"></a>
+            </div>
+        </div>
+        <div class="footer4">
+            <p>Copyright Binar 2022</p>
+            <div class="kotakbiru"></div>
+        </div>
+    </section>
+    <script>
+        const remainingStart = Date.now();
+        let paymentStart = null;
+        const remainingDuration = 24 * 60 * 60 * 1000;
+        const paymentDuration = 10 * 60 * 1000;
+
+        function formatCountdown(duration, selectors) {
+            const totalSeconds = Math.max(0, Math.ceil(duration / 1000));
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            if (selectors.hours) {
+                document.getElementById(selectors.hours).textContent = String(hours).padStart(2, "0");
+            }
+            document.getElementById(selectors.minutes).textContent = String(minutes).padStart(2, "0");
+            document.getElementById(selectors.seconds).textContent = String(seconds).padStart(2, "0");
+        }
+
+        function updateCountdowns() {
+            const elapsed = Date.now() - remainingStart;
+
+            formatCountdown(remainingDuration - elapsed, {
+                hours: "hours-remaining",
+                minutes: "minutes-remaining",
+                seconds: "seconds-remaining"
+            });
+
+            if (paymentStart !== null) {
+                const paymentElapsed = Date.now() - paymentStart;
+                formatCountdown(paymentDuration - paymentElapsed, {
+                    hours: null,
+                    minutes: "payment-minutes",
+                    seconds: "payment-seconds"
+                });
+            }
+        }
+
+        updateCountdowns();
+        setInterval(updateCountdowns, 250);
+
+        function showPaymentConfirmation() {
+            if (paymentStart === null) {
+                paymentStart = Date.now();
+            }
+
+            document.querySelector(".formconfirm").hidden = true;
+            document.getElementById("payment-confirmation").hidden = false;
+            updateCountdowns();
+        }
+
+        const instructions = [
+            [
+                "Tidak termasuk biaya makan sopir Rp 75.000/hari",
+                "Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam",
+                "Tidak termasuk akomodasi penginapan",
+                "Tidak termasuk biaya makan sopir Rp 75.000/hari",
+                "Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam",
+                "Tidak termasuk akomodasi penginapan",
+                "Tidak termasuk biaya makan sopir Rp 75.000/hari",
+                "Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam",
+                "Tidak termasuk akomodasi penginapan",
+            ],
+
+            [
+                "Buka aplikasi BCA Mobile",
+                "Pilih menu m-BCA",
+                "Masukkan kode akses Anda",
+                "Pilih menu m-Transfer",
+                "Pilih BCA Virtual Account"
+            ],
+
+            [
+                "Buka website BCA Klik",
+                "Login menggunakan akun Anda",
+                "Pilih menu Transfer Dana",
+                "Masukkan nomor Virtual Account",
+                "Konfirmasi pembayaran"
+            ],
+
+            [
+                "Buka website Internet Banking BCA",
+                "Login menggunakan akun Anda",
+                "Pilih menu Transfer Dana",
+                "Masukkan nomor Virtual Account",
+                "Konfirmasi pembayaran"
+            ]
+        ];
+
+        function showInstruction(index) {
+            const tabs = document.querySelectorAll(".tab");
+            const list = document.getElementById("instruction-list");
+
+            tabs.forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            tabs[index].classList.add("active");
+
+            list.innerHTML = "";
+
+            instructions[index].forEach(text => {
+                const li = document.createElement("li");
+                li.textContent = text;
+                list.appendChild(li);
+            });
+        }
+      
+        function previewBukti(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById("preview-bukti");
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+
+                    preview.style.width = "100%";
+                    preview.style.height = "100%";
+                    preview.style.objectFit = "contain";
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    
+    </script>
+</body>
+</html>

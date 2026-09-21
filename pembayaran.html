@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pembayaran</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+    <body>
+        <section class="coverhslpencarian">
+            <header class="menu">
+                <div class="menukiri">
+                    <div class="logo"></div>
+                </div>
+                <!-- Hamburger -->
+                <button class="hamburger" onclick="bukaMenu()">☰</button>
+                <!-- Overlay -->
+                <div class="overlay" onclick="tutupMenu()"></div>
+                <!-- Menu kanan -->
+                <div class="menukanan">
+                    <div class="menuheader">
+                        <b>BCR</b>
+                        <button class="closemenu" onclick="tutupMenu()">×</button>
+                    </div>
+                    <a href="#our-services">Our Services</a>
+                    <a href="#why-us">Why Us</a>
+                    <a href="#testimony">Testimony</a>
+                    <a href="#faq">FAQ</a>
+                    <button class="btnregis" type="button" onclick="window.location.href='#';">Register</button>
+                </div>
+            </header>
+            <div class="infoalur">
+                <div class="infoalurjudul">
+                    <img src="img/left.png" alt="panahkiri" onclick="history.back()">
+                    <h1>Pembayaran</h1>
+                </div>
+                <div class="infoalurstep">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Pilih Metode</span>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Bayar</span>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Tiket</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="forminfopesanan">
+            <div class="forminfopesanan-box">
+                <div class="forminfopesananjudul">
+                    <h1>Detail Pesananmu</h1>
+                </div>
+                <div class="forminfopesanandetail">
+                    <p>Tipe Driver<span>Dengan Sopir</span></p>
+                    <p>Tanggal<span>27 Mar 2022</span></p>    
+                    <p>Waktu Jemput/Antar<span>10.00 Wita</span></p>    
+                    <p>Jumlah Penumpang (opsional)<span>-</span></p>    
+                </div>
+            </div>
+        </section>
+        <section class="formbayar">
+            <div class="formbayarbox">
+                <div class="formbayarkiri">
+                    <h1>Pilih Bank Transfer</h1>
+                    <p>
+                        Kamu bisa membayar dengan transfer melalui ATM,
+                        Internet Banking atau Mobile Banking
+                    </p>
+
+                    <div class="listbank" onclick="pilihBank(this)">
+                        <span class="bank-logo">BCA</span>
+                        <span>BCA Transfer</span>
+                        <span class="check">✓</span>
+                    </div>
+
+                    <div class="listbank" onclick="pilihBank(this)">
+                        <span class="bank-logo">BNI</span>
+                        <span>BNI Transfer</span>
+                        <span class="check">✓</span>
+                    </div>
+
+                    <div class="listbank" onclick="pilihBank(this)">
+                        <span class="bank-logo">Mandiri</span>
+                        <span>Mandiri Transfer</span>
+                        <span class="check">✓</span>
+                    </div>
+                </div>
+                <div class="formbayarkanan">
+                    <h1>Nama/Tipe Mobil</h1>
+                    <div class="cardmobilinfoo">
+                        <div><i class="fa-solid fa-user"></i><span>4 orang</span></div>
+                        <div><i class="fa-solid fa-gear"></i><span>Manual</span></div>
+                        <div><i class="fa-regular fa-calendar"></i><span>Tahun 2020</span></div>
+                    </div>
+                    <div class="total">
+                        <p>Total</p>
+
+                        <button class="toggle-detail" type="button" aria-label="Tampilkan detail" aria-expanded="false" onclick="toggleDetail(this)">
+                            <img src="img/down.png" alt="">
+                        </button>
+
+                        <span>Rp. 430.000</span>
+                    </div>
+
+                    <div id="detail-harga" class="detail-harga" hidden>
+                        <h1>Harga</h1>
+                        <div>
+                            <ul>
+                                <li>1 Mobil dengan sopir <span>Rp. 430.000</span></li>
+                            </ul>
+                        </div>
+
+                        <h1>Biaya lainnya</h1>
+                        <div>
+                            <ul>
+                                <li>Pajak <span>Termasuk</span></li>
+                                <li>Biaya makan sopir <span>Termasuk</span></li>
+                            </ul>
+                        </div>
+
+                        <h1>Belum Termasuk</h1>
+                        <div>
+                            <ul>
+                                <li>Bensin</li>
+                                <li>Tol dan Parkir</li>
+                            </ul>
+                        </div>
+                        <div class="total">
+                            <p>Total</p>
+                            <span>Rp. 430.000</span>
+                        </div>
+                    </div>
+                    <div class="btnbayarbox">
+                        <button class="btnbayar" type="button" disabled onclick="window.location.href='pembayaranproses.html';">Bayar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+    <section class="footer">
+            <div class="footer1">
+                <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+                <p>binarcarrental@gmail.com</p>
+                <p>081-233-334-808</p>
+            </div>
+            <div class="footer2">
+                <a href="#our-services">Our Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#testimony">Testimony</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer3">
+                <p>Connect with us</p>
+                <div class="footer3img">
+                    <a href="#" aria-label="Facebook"><img src="img/icon_facebook.png" alt="facebook"></a>
+                    <a href="#" aria-label="Instagram"><img src="img/icon_instagram.png" alt="instagram"></a>
+                    <a href="#" aria-label="Twitter"><img src="img/icon_twitter.png" alt="twitter"></a>
+                    <a href="#" aria-label="Email"><img src="img/icon_mail.png" alt="email"></a>
+                    <a href="#" aria-label="Twitch"><img src="img/icon_twitch.png" alt="twitch"></a>
+                </div>
+            </div>
+            <div class="footer4">
+                <p>Copyright Binar 2022</p>
+                <div class="kotakbiru"></div>
+            </div>
+        </section>
+        <script>
+        function pilihBank(element) {
+            document.querySelectorAll('.listbank').forEach(bank => {
+                bank.classList.remove('selected');
+            });
+
+            element.classList.add('selected');
+            document.querySelector('.btnbayar').disabled = false;
+        }
+        function toggleDetail(button) {
+            const detail = document.getElementById("detail-harga");
+            const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+            detail.hidden = isExpanded;
+            button.setAttribute("aria-expanded", String(!isExpanded));
+        }
+        </script>
+    </body>
+</html>

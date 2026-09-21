@@ -27,9 +27,11 @@ html {
     display: flex;
     width: 100%;
     height: 104px;
-    padding-top: 24px;
+    /* padding-top: 24px; */
     box-sizing: border-box;
+    justify-content: space-between;
     position: fixed;
+    padding:24px 110px 0 110px;
     top: 0;
     left: 0;
     z-index: 1100;
@@ -38,7 +40,7 @@ html {
 }
 
 .menukiri {
-    width: 50%;
+    /* width: 50%; */
     height: 40px;
 }
 
@@ -50,9 +52,11 @@ html {
 }
 
 .menukanan {
-    width: 50%;
+    font-family: Arial, sans-serif;
+    /* width: 50%; */
     height: 40px;
     display: flex;
+    /* font-size: 1; */
     align-items: center;
     justify-content: center;
     gap: 30px;
@@ -66,8 +70,11 @@ html {
 .btnregis {
     background-color: #5CB85F;
     color: white;
-    border: none;
-    padding: 7px 12px;
+    border-radius:3px;
+    border:none;
+    padding: 12px 14px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
     
@@ -1111,7 +1118,654 @@ body.form-active > *:not(.formcari) {
 .cardmobilharga span{
     font-weight: bold;
 }
-@media screen and (max-width: 768px) {
+.infoalur{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 7px;
+    padding: 20px 180px 20px 190px;
+    font-family: Arial, sans-serif;
+}
+
+.infoalurjudul{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: -20px 0 0 0;
+}
+.infoalur img{
+    width: 25px;
+    cursor: pointer;
+}
+.infoalurstep {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+.infoalur-tiket {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 6px;
+}
+.infoalur-tiket .infoalur-title-group {
+    grid-column: 1;
+    grid-row: 1;
+}
+.infoalur-tiket .infoalurstep {
+    grid-column: 2;
+    grid-row: 1;
+}
+.infoalur-tiket .infoalur-title-group .infoalurjudul {
+    grid-column: auto;
+    grid-row: auto;
+}
+.infoalur-tiket .order-id {
+    margin: 0;
+    margin-left: 45px;
+    margin-top: 4px;
+    color: #333;
+    font-size: 12px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.step-number {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #0D28A6;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: #0D28A6;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.step-text {
+    color: #333;
+    white-space: nowrap;
+    /* width: 100px; */
+}
+
+.step.active .step-number {
+    background-color: #0D28A6;
+    color: white;
+}
+
+.step-line {
+    width: 38px;
+    height: 1px;
+    background-color: #0D28A6;
+}
+.formbayar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 25px;
+}
+.formbayarbox{
+    display: flex;
+    width: 78%;
+    gap: 30px;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    /* border: 2px solid #333; */
+    
+}
+.forminfopesanan{
+    display: flex;
+
+    width: 100%;
+    justify-content: center;
+}
+.forminfopesanan-box{
+    margin-top: -65px;
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(160, 160, 160, 0.15);
+    border: 0.1px solid #ededed;
+    border-radius: 8px;
+    padding: 25px;
+    font-family: Arial, sans-serif;
+}
+.forminfopesanandetail{
+    display: flex;
+    /* gap: 300px; */
+    justify-content: space-between;
+    padding-right: 50px;
+    /* box-sizing: border-box; */
+}
+.forminfopesananjudul h1{
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.forminfopesanandetail p,.forminfopesanandetail span{
+    margin:0;
+    display: flex;
+    width: 240px;
+    gap: 15px;
+    flex-direction: column;
+}
+.forminfopesanandetail span{
+    color: #a8a8a8;
+}
+.total {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.formbayarkiri{
+    display: flex;
+    padding: 28px;
+    width: 60%;
+    line-height: 30px;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(160, 160, 160, 0.15);
+    height: 290px;
+}
+.formbayarkiri h1{
+    font-size: 16px;
+}
+.formbayarkanan {
+    width: 40%;
+    min-width: 320px;
+    padding: 28px;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(160, 160, 160, 0.15);
+}
+
+.formbayarkanan h1 {
+    margin: 0 0 20px;
+    font-size: 18px;
+}
+
+.formbayarkanan .cardmobilinfoo {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    font-size: 14px;
+}
+
+.formbayarkanan .total {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 2px solid #ededed;
+}
+
+.formbayarkanan .total p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.toggle-detail {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.toggle-detail:hover,
+.toggle-detail:focus-visible {
+    background-color: #f1f3ff;
+}
+
+.toggle-detail:focus-visible {
+    outline: 2px solid #0D28A6;
+    outline-offset: 2px;
+}
+
+.toggle-detail img {
+    width: 20px;
+    transition: transform 0.2s ease;
+}
+
+.toggle-detail[aria-expanded="true"] img {
+    transform: rotate(180deg);
+}
+
+.total span {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.detail-harga {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ededed;
+}
+
+.detail-harga h1 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.detail-harga ul {
+    margin: 0 0 18px;
+    padding-left: 18px;
+    color: #666666;
+    font-size: 16px;
+}
+
+.detail-harga li {
+    margin-bottom: 8px;
+}
+
+.detail-harga li span {
+    float: right;
+    margin-left: 20px;
+    color: #333333;
+}
+.listbank {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.bank-logo {
+    width: 58px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+.check {
+    margin-left: auto;
+    color: #5cb85c;
+    font-size: 24px;
+    display: none;
+}
+
+.listbank.selected .check {
+    display: block;
+}
+.btnbayarbox{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.btnbayar{
+    width: 95%;
+    height: 40px;
+    cursor: pointer;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.btnbayar:disabled{
+    background-color: #d3d3d3;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.judulcountdown .countdown{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.judulcountdown .countdown .time-box{
+    /* background-color: #25b751; */
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    
+}
+.time-box {
+    width: 38px;
+    height: 42px;
+    background-color: #dF3f5b;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.countdown span {
+    font-size: 22px;
+    color: #333;
+}
+.prosesbayar{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+    gap: 40px;
+}
+.prosesbayarkiri{
+    display: flex;
+    width: 40%;
+    /* border:2px solid #222; */
+    flex-direction: column;
+    gap: 30px;
+}
+.prosesbayarkiri1, .prosesbayarkiri2, .prosesbayarkiri3, .prosesbayarkanan {
+    background-color: white;
+    border: 1px solid #eee;
+    /* font-size: 16px; */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.prosesbayarkiri1, .prosesbayarkiri2, .prosesbayarkiri3{
+    width: 100%;
+    box-sizing: border-box;
+}
+.prosesbayarkiri1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.prosesbayarkiri1 h1, .prosesbayarkiri2 h1, .prosesbayarkiri3 h1, .prosesbayarkanan h1{
+    font-size: 18px;
+    margin:0;
+}
+.prosesbayarkiri2{
+    gap: 4px;
+    flex-direction: column;
+    display: flex;
+}
+.prosesbayarkiri2 .text{
+    margin: 15px 0 8px 0;
+    /* line-height: 1px; */
+    color: #888;
+}
+.boxBCA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 30px;
+    border: 1.5px solid #d4d4d4;
+    border-radius: 3px;
+}
+.inforekening{
+    display: flex;
+    gap: 20px;
+}
+.nameBCA{
+    display: flex;
+    line-height: 30px;
+    margin:0;
+    margin-top:18px;
+}
+
+.boxbayar,.boxbayar2{
+    display: flex;
+    height: 20px;
+    align-items: center;
+    justify-content: space-between;
+    /* box-sizing: border-box; */
+    padding: 10px;
+    border: 1.5px solid #3C3C3C;
+    border-radius: 3px;
+}
+.boxbayar img, .boxbayar2 img{
+    width: 20px;
+}
+.boxbayar p{
+    color: #888;
+}
+.boxbayar2 p{
+    font-weight: bold;
+}
+.prosesbayarkiri3 h1 {
+    font-size: 24px;
+    margin: 0 0 35px;
+}
+.coverpembayaran{
+    width: 100%;
+    height: 170px;
+    position: relative;
+    background-color: #f1f3ff;
+}
+.coverpembayaran .infoalur {
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+.btnupload{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 30px 0 30px 0;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.prosesbayarkanan{
+    width: 30%;
+    height: fit-content;
+    align-self: flex-start;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+.formconfirm[hidden],
+.payment-confirmation[hidden] {
+    display: none;
+}
+.formconfirm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.prosesbayarkanan p{
+    line-height: 25px;
+    width: 90%;
+    margin-top: 0;
+    font-size: 18px;
+}
+.prosesbayarkanan h2{
+    font-size: 17px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.btnconfirmpay{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px ;
+}
+
+.payment-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+.tempatbukti{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}   
+.wrapimgbukti {
+    width: 85%;
+    height: 250px;
+    justify-content: center;
+    background-color: #f5f5f5;
+    border: 2px dashed #d3d3d3;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    cursor: pointer;
+}
+.judulcountdown{
+    display: flex;
+    /* margin-top: 10px; */
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.judulcountdown h1{
+    font-size: 18px;
+
+}
+
+.wrapimgbukti label {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.wrapimgbukti input {
+    display: none;
+}
+
+#preview-bukti {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.tab.active {
+    font-weight: bold;
+    border-bottom: 2px solid #5CB85F;
+}
+
+.instruction-content {
+    padding-top: 25px;
+}
+
+.instruction-content ul {
+    margin: 0;
+    padding-left: 35px;
+}
+
+.instruction-content li {
+    color: #888;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.payment-tabs div{
+    font-size: 16px;
+    padding-bottom: 25px;
+
+}
+.prosesbayarkiri3 h1{
+    font-size: 18px;
+    margin-bottom: 25px;
+
+}
+.pageberhasil{
+    width: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.pageberhasil img{
+    width: 70px;
+}
+.wrapinvoice{
+    padding: 50px;
+    width: 50%;
+    height: fit-content;
+    border: 1px solid #b1b1b1;
+    border-radius: 8px;
+}
+.wrapinvoice1{
+    display: flex;
+    justify-content: space-between;
+}
+.pageberhasil h1{
+    font-size: 20px;
+    margin: 20px;
+}
+.infoinvoice{
+    font-size: 18px;
+    color: #a8a8a8;
+    padding-bottom: 20px;
+}
+.wrapinvoice p{
+    color: #888888;
+}
+.invoice-box{
+    width: 100%;
+    border: 1px solid #b1b1b1;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    padding: 120px 100px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+.invoice{
+    display: flex;
+    align-items: center;
+}
+@media
+ screen and (max-width: 768px) {
 
     .detailmobilisi {
         width: 90%;
@@ -1138,7 +1792,7 @@ body.form-active > *:not(.formcari) {
         align-items: flex-start;
         z-index: 1100;
         background-color: rgba(241, 243, 255, 0.96);
-        backdrop-filter: blur(8px);
+        backdrop-filter: none;
     }
 
     .menukiri {
@@ -1184,11 +1838,7 @@ body.form-active > *:not(.formcari) {
         display: none;
 
         position: fixed;
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 100%;
+        inset: 0;
 
         background-color: rgba(0, 0, 0, 0.6);
 

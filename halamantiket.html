@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiket</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <section class="coverpembayaran">
+        <header class="menu">
+            <div class="menukiri">
+                <div class="logo"></div>
+            </div>
+            <!-- Hamburger -->
+            <button class="hamburger" onclick="bukaMenu()">☰</button>
+            <!-- Overlay -->
+            <div class="overlay" onclick="tutupMenu()"></div>
+            <!-- Menu kanan -->
+            <div class="menukanan">
+                <div class="menuheader">
+                    <b>BCR</b>
+                    <button class="closemenu" onclick="tutupMenu()">×</button>
+                </div>
+                <a href="#our-services">Our Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#testimony">Testimony</a>
+                <a href="#faq">FAQ</a>
+                <button class="btnregis" type="button" onclick="window.location.href='#';">Register</button>
+            </div>
+        </header>
+        <div class="infoalur infoalur-tiket">
+            <div class="infoalur-title-group">
+                <div class="infoalurjudul">
+                    <img src="img/left.png" alt="panahkiri" onclick="history.back()">
+                    <h1>Tiket</h1>
+                </div>
+                <p class="order-id">Order ID: xxxxxxxx</p>
+            </div>
+            <div class="infoalurstep">
+                <div class="step active">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Pilih Metode</span>
+                </div>
+
+                <div class="step-line"></div>
+
+                <div class="step active">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Bayar</span>
+                </div>
+                
+                <div class="step-line"></div>
+
+                <div class="step active">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Tiket</span>
+                </div>
+            </div>
+        </div>  
+    </section>
+    <section class="pageberhasil">
+        <img src="img/success.png" alt="">
+        <h1>Pembayaran Berhasil!</h1>
+        <p class="infoinvoice">Tunjukkan invoice ini ke petugas BCR di titik temu.</p>
+        <div class="wrapinvoice">
+            <div class="wrapinvoice1">
+                <h1>Invoice</h1>
+                <button><img src="img/download.png" alt="">Unduh</button>
+            </div>
+            <p>*no Invoice</p>
+            <div class="invoice-box">
+                <div class="invoice">
+                    <img src="img/image.png" alt="">
+                    <p>PDF Viewer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="footer1">
+            <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+            <p>binarcarrental@gmail.com</p>
+            <p>081-233-334-808</p>
+        </div>
+        <div class="footer2">
+            <a href="#our-services">Our Services</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#testimony">Testimony</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer3">
+            <p>Connect with us</p>
+            <div class="footer3img">
+                <a href="#" aria-label="Facebook"><img src="img/icon_facebook.png" alt="facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="img/icon_instagram.png" alt="instagram"></a>
+                <a href="#" aria-label="Twitter"><img src="img/icon_twitter.png" alt="twitter"></a>
+                <a href="#" aria-label="Email"><img src="img/icon_mail.png" alt="email"></a>
+                <a href="#" aria-label="Twitch"><img src="img/icon_twitch.png" alt="twitch"></a>
+            </div>
+        </div>
+        <div class="footer4">
+            <p>Copyright Binar 2022</p>
+            <div class="kotakbiru"></div>
+        </div>
+    </section>
+</body>
+</html>
