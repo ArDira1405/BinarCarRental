@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal3</title>
+</head>
+<body>
+    <script>
+        function getAngkaTerbesarKedua(personName){
+        if(personName === undefined || personName === 0){
+            return "ERROR: Data tidak valid";
+        }
+        personName.sort((a,b)=>b-a);
+        return personName[1];
+        }
+
+        const dataAngka = [9,4,7,7,4,3,2,2,8]
+
+        console.log(getAngkaTerbesarKedua(dataAngka))
+        console.log(getAngkaTerbesarKedua(0))
+        console.log(getAngkaTerbesarKedua())
+        
+    </script>
+</body>
+</html>

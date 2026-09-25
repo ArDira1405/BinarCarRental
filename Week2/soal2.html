@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soal2</title>
+</head>
+<body>
+    <script>
+        function checkTypeNumber(givenNumber){
+            if(givenNumber === undefined){
+                return "Error: Bro where is the parameter?";
+            }
+            if(typeof givenNumber !== "number")   {
+                return"Error: Invalid data type";
+            }
+            if(givenNumber % 2 ===  0){
+                return "Genap";
+            }
+            else{
+                return "Ganjil";
+            }
+        }
+        console.log(checkTypeNumber(10))
+        console.log(checkTypeNumber(89))
+        console.log(checkTypeNumber(80))
+        console.log(checkTypeNumber(34))
+        console.log(checkTypeNumber())
+        console.log(checkTypeNumber([]))
+    </script>
+</body>
+</html>
